@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+
+	<!-- 메시지 프로퍼티 파일 지정 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>ApplicationMessage</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 오라클 db연동 -->
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="url"
+			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="PROJECT" />
+		<property name="password" value="1234" />
+	</bean>
+
+	<!-- Sql 세션 팩토리 빈을 정의 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+
+
+	<!-- sqlsessiontemplate 빈을 정의 -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- 트랜잭션 관리자의 빈을 정의한다. -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- 애너테이션 기반의 트랜잭션 제어를 활성화한다. -->
+	<tx:annotation-driven />
+
+
+
+	<!-- mapper 인터페이스의 스캔을 활성화 <mybatis-spring:scan base-package="com.my.mapper" 
+		/> -->
+
+
+	<!-- autowired할 패키지경로를 기재하면 된다 <context:component-scan base-package="com.my"></context:component-scan> -->
+
+
+
+</beans>
