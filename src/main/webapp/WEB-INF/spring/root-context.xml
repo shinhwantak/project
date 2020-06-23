@@ -19,23 +19,32 @@
 	</bean>
 
 
-	<!-- 오라클 db연동 -->
-	<bean name="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<!-- 오라클 db연동 데이터 소스빈 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-		<property name="url"
+		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl" />
 		<property name="username" value="PROJECT" />
 		<property name="password" value="1234" />
 	</bean>
-
+	
+		<!--HikariCP Configration  데이터 소스빈-->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	
+	
+	
 	<!-- Sql 세션 팩토리 빈을 정의 -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml" />
 	</bean>
+
 
 
 	<!-- sqlsessiontemplate 빈을 정의 -->
