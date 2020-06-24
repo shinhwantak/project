@@ -1,4 +1,4 @@
-package com.spring.Controller;
+package com.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +17,12 @@ public class CodeClassController {
 	private CodeClassService service;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerForm(Model modle) {
-	
-			CodeClass codeClass = new CodeClass(); 
+	public void registerForm(Model model) {
 			
-			codeClass.
+			System.out.println("왜 안탐?");
+			CodeClass codeClass = new CodeClass(); 
+		    
+			model.addAttribute(codeClass);
 	}
 	
 }

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>   
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="main-template"
-		template="/WEB-INF/tiles/layouts/main_template.jsp">
+	<definition name="main-template" template="/WEB-INF/tiles/layouts/main_template.jsp">
 		<put-attribute name="title" value="Main" />
-		<put-attribute name="header"
-			value="/WEB-INF/tiles/components/main/header.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/tiles/components/main/menu.jsp" />
-		<put-attribute name="footer"
-			value="/WEB-INF/tiles/components/main/footer.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/components/main/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/components/main/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/components/main/footer.jsp" />
 	</definition>
+	
+		<definition name="home" extends="main-template">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="content" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	
+	
+		<!-- 코드 그룹관리 페이지에 대한 레이아웃 템플릿 구성요소를 정의  -->
+	<definition name="codeclass/*" extends="main-template">
+		<put-attribute name="title" value="CodeClass" />
+		<put-attribute name="content" value="/WEB-INF/views/codeclass/{1}.jsp" />
+	</definition>
+	
 	
 	
 	<definition name="home" extends="main-template">
@@ -19,10 +28,10 @@
 			value="/WEB-INF/views/home.jsp" />
 	</definition>
 	
-	<!-- 코드 그룹관리 페이지에 대한 레이아웃 템플릿 구성요소를 정의  -->
-	<definition name="codeclass/*" extends="main_template">
-		 <put-attribute name="title" value="CodeClass"/>
-		 <put-attribute name="content" value="/WEB-INF/views/codeclass/{1}.jsp" />
+
+	<definition name="codeclass/*" extends="main-template">
+		<put-attribute name="title" value="CodeClass" />
+		<put-attribute name="content" value="/WEB-INF/views/codeclass/{1}.jsp" />
 	</definition>
 	
 </tiles-definitions> 
