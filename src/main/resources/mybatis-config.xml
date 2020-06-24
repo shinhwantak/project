@@ -3,4 +3,17 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+	<settings>
+		<!-- 카멜 표기법 true -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 타입널 처리 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+	<!-- TypeAlias로 맵핑 파일에서 반복적으로 사용될 패키지의 이름을 정의한다. -->
+		<package name="com.spring.domain" />
+	<!-- 클래스  -->		
+		<!-- <typeAlias type="com.my.domain.insltemListSub" alias="insltemListSub" /> -->
+	</typeAliases>
 </configuration> 

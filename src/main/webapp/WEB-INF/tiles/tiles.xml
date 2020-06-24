@@ -11,9 +11,18 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/tiles/components/main/footer.jsp" />
 	</definition>
+	
+	
 	<definition name="home" extends="main-template">
 		<put-attribute name="title" value="Home" />
 		<put-attribute name="content"
 			value="/WEB-INF/views/home.jsp" />
 	</definition>
+	
+	<!-- 코드 그룹관리 페이지에 대한 레이아웃 템플릿 구성요소를 정의  -->
+	<definition name="codeclass/*" extends="main_template">
+		 <put-attribute name="title" value="CodeClass"/>
+		 <put-attribute name="content" value="/WEB-INF/views/codeclass/{1}.jsp" />
+	</definition>
+	
 </tiles-definitions> 
