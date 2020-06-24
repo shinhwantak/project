@@ -19,10 +19,17 @@ public class CodeClassController {
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerForm(Model model) {
 			
-			System.out.println("왜 안탐?");
 			CodeClass codeClass = new CodeClass(); 
+			
+			
+			System.out.println(codeClass);
 		    
 			model.addAttribute(codeClass);
 	}
+	
+	
+	
+	
+	
 	
 }

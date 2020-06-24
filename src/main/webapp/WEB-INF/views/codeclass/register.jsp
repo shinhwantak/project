@@ -8,13 +8,13 @@
 	<table>
 		<tr>
 			<td><spring:message code="codeclass.classCode" /></td>
-			<td>ehsdj</td>
-			<td><font color="red"><%-- <form:errors path="classCode" /> --%></font></td>
+			<td><form:input path="classCode" /></td>
+			<td><font color="red"><form:errors path="classCode" /></font></td>
 		</tr>
 		<tr>
 			<td><spring:message code="codeclass.className" /></td>
-			<td><%-- <form:input path="className" /> --%></td>
-			<td><font color="red"><%-- <form:errors path="className" /> --%></font></td>
+			<td><form:input path="className" /></td>
+			<td><font color="red"><form:errors path="className" /></font></td>
 		</tr>
 	</table>
 </form:form>
