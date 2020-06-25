@@ -12,4 +12,8 @@ public interface CodeClassMapper {
 
 	public CodeClass read(String classCode)throws Exception;
 
+	public void update(CodeClass codeClass)throws Exception;
+
+	public void delete(String classCode)throws Exception;
+
 }

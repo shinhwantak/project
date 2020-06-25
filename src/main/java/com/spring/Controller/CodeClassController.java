@@ -52,6 +52,36 @@ public class CodeClassController {
 	}
 	
 	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyForm(String classCode, Model model) throws Exception{
+		
+		System.out.println("modify");
+		model.addAttribute(service.read(classCode));
+		
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modify(CodeClass codeClass, RedirectAttributes rttr) throws Exception{
+		
+		System.out.println(codeClass);
+		
+		service.modify(codeClass);
+		
+		rttr.addFlashAttribute("msg","SUCCESS");
+		
+		return "redirect:/codeclass/list";
+	}
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(String classCode, RedirectAttributes rttr)throws Exception{
+		
+		service.remove(classCode);
+		
+		rttr.addFlashAttribute("msg","처리가 완료 되었습니다~~");
+		
+		return "redirect:/codeclass/list";
+	}
+	
 	
 	
 	

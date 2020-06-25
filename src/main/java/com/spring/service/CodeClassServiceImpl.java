@@ -29,6 +29,16 @@ public class CodeClassServiceImpl implements CodeClassService {
 	public CodeClass read(String classCode) throws Exception {
 		return mapper.read(classCode);
 	}
+
+	@Override
+	public void modify(CodeClass codeClass)throws Exception {
+		mapper.update(codeClass);
+	}
+
+	@Override
+	public void remove(String classCode) throws Exception {
+		mapper.delete(classCode);
+	}
 		
 	
 }

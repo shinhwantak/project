@@ -30,7 +30,7 @@
 			<c:forEach items="${list}" var="codeClass">
 				<tr>
 					<td align="center">${codeClass.classCode }</td>
-					<td align="left"><a href="/codeclass/read?classCode=${codeClass.classCode}">${codeClass.classCode}</a></td>
+					<td align="left"><a href="/codeclass/read?classCode=${codeClass.classCode}">${codeClass.className}</a></td>
 					<td align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${codeClass.regDate}"/></td>
 				</tr>
 			</c:forEach>
