@@ -34,6 +34,13 @@ public class CodeLabelValue implements Serializable {
 		this.value = value;
 	}
 
+	@Override
+	public String toString() {
+		return "CodeLabelValue [label=" + label + ", value=" + value + "]";
+	}
+
+	
+	
 	
 	
 

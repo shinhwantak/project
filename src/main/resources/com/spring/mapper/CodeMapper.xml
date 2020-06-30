@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.CodeMapper">
+
+	<select id="getCodeClassList" resultType="com.spring.domain.CodeLabelValue">
+	
+		select class_code as value,
+		class_name as label
+		from code_class
+		where use_yn = 'Y'
+		order by class_name
+		
+	</select>
+
+
+</mapper> 

@@ -1,0 +1,14 @@
+package com.spring.service;
+
+import java.util.List;
+
+import com.spring.domain.CodeLabelValue;
+
+public interface CodeService {
+
+	public List<CodeLabelValue> getCodeClassList() throws Exception;
+	
+
+	
+	
+}
