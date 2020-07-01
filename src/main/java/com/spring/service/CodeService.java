@@ -6,7 +6,7 @@ import com.spring.domain.CodeLabelValue;
 
 public interface CodeService {
 
-	public List<CodeLabelValue> getCodeClassList() throws Exception;
+	public List<CodeLabelValue> getCodeClassList(String classCode) throws Exception;
 	
 
 	

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.MemberMapper">
+
+
+	<resultMap type="Member" id="memberMap">
+		<id property="userNo" column="user_no" />
+		<result property="userNo" column="user_no" />
+		<result property="userId" column="user_id" />
+		<result property="userPw" column="user_pw" />
+		<result property="userName" column="user_name" />
+		<result property="userName" column="user_name" />
+		<result property="job" column="job" />
+		<result property="coin" column="coin" />
+		<result property="enabled" column="enabled" />
+		<result property="regDate" column="reg_date" />
+		<result property="updDate" column="upd_date" />
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+
+	<resultMap type="MemberAuth" id="authMap">
+		<result property="userNo" column="user_no" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+
+
+	<insert id="create">
+		<selectKey keyProperty="userNo" resultType="int"
+			order="AFTER">
+			select max(user_no) from member
+		</selectKey>
+		INSERT INTO member (user_no, user_id, user_pw, user_name, job ) VALUES
+		(user_no_seq.nextval, #{userid},
+		#{userPw}, #{userName}, #{job} )
+	</insert>
+
+
+	<insert id="createAuth">
+		INSERT INTO member_auth ( user_no, auth ) VALUES (
+		#{userNo}, #{auth} )
+	</insert>
+
+
+	<select id="list" resultType="Member">
+		select user_no,
+		user_id,
+		user_pw,
+		user_name,
+		(select code_name from code_detail where class_code = 'A01' and code_value = job) as job,
+		coin,
+		reg_date
+		from member
+		order by reg_date desc
+	</select>
+
+
+</mapper> 

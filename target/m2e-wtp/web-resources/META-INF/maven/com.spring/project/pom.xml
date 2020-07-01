@@ -17,8 +17,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<!-- 아파치 타일즈 -->
 		<apachetiles.version>3.0.5</apachetiles.version>
-
-
+	  
 	</properties>
 
 	<!-- 레파지토리 -->
@@ -32,7 +31,47 @@
 
 
 	<dependencies>
+
+	
 		<!-- 추가한 디펜던시 시작 -->
+		
+		<!-- 입력값 검증 라이브러리 -->
+	 	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.2.Final</version>
+		</dependency>
+		
+		
+		<!-- 스프링 시큐리티 관련 라이브러리 시작 -->
+	<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.0.7.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.0.7.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.0.7.RELEASE</version>
+		</dependency>
+			
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>5.0.7.RELEASE</version>
+		</dependency>
+		<!-- 스프링 시큐리티 관련 라이브러리 끝 -->
+
+
+
+
 
 
 		<!-- 데이터 베이스 관련 시작 -->
@@ -43,11 +82,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<!-- 트랜잭션 -->
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		
 		<!-- 히카리 커넥션풀 -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -133,16 +174,12 @@
 			<version>0.2.7</version>
 		</dependency>
 
-	  <!-- lombok -->
- 	 <!--     <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-            <scope>provided</scope>
-      </dependency> -->
-      
-      
-      
+		<!-- lombok -->
+		<!-- <dependency> <groupId>org.projectlombok</groupId> <artifactId>lombok</artifactId> 
+			<version>1.18.12</version> <scope>provided</scope> </dependency> -->
+
+
+
 
 
 		<!-- 추가한 디펜던시 끝 -->

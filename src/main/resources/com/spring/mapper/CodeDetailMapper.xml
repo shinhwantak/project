@@ -4,20 +4,19 @@
 
 
 
-	<insert id="">
-		
-		insert into code_detail
-		(class_code, code_value, code_name, sort_seq)
-		values
-		(#{classCode},#{codeValue},#{codeName},#{sortSeq})
+	<insert id="create">
+		INSERT INTO code_detail ( class_code, code_value,
+		code_name, sort_seq ) VALUES ( #{classCode}, #{codeValue},
+		#{codeName}, #{sortSeq} )
 	</insert>
-	
+
 	<select id="getMaxSortSeq" resultType="int">
 		select max(sort_seq)
-		from code_detail
+		from
+		code_detail
 		where class_code = #{classCode}
 	</select>
-	
+
 	<select id="list" resultType="CodeDetail">
 		select class_code,
 		code_value,
@@ -26,9 +25,10 @@
 		use_yn,
 		reg_date
 		from code_detail
-		order by class_code asc,
-		sor_seq asc
+		order by class_code
+		asc,
+		sort_seq asc
 	</select>
-	
+
 
 </mapper> 

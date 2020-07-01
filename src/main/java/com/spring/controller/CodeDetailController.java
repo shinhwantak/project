@@ -34,7 +34,7 @@ public class CodeDetailController {
 		CodeDetail codeDetail = new CodeDetail();
 		model.addAttribute(codeDetail);
 		
-		List<CodeLabelValue> classCodeList = codeService.getCodeClassList();
+		List<CodeLabelValue> classCodeList = codeService.getCodeClassList("A01");
 		
 		System.out.println(classCodeList);
 		model.addAttribute("classCodeList", classCodeList);
@@ -50,12 +50,12 @@ public class CodeDetailController {
 		rttr.addFlashAttribute("msg","메메메~");
 		
 		
-		return "redirect:/codeDetail/list";		
+		return "redirect:/codedetail/list";		
 	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public void list(Model model) throws Exception{
-		model.addAllAttribute("list",codeDetailService.list());
+		model.addAttribute("list",codeDetailService.list());
 	}
 	
 	
