@@ -28,7 +28,7 @@ public class CodeClassController {
 			
 			
 			
-			System.out.println(codeClass+"뭐여ㅑ?~");
+			System.out.println(codeClass+"제발~");
 		    
 			
 			
