@@ -21,11 +21,21 @@ public class CodeClassController {
 	public void registerForm(Model model) {
 			
 		
+		
+		
 			CodeClass codeClass = new CodeClass(); 
 			
-			System.out.println(codeClass);
+			
+			
+			
+			System.out.println(codeClass+"제발~");
 		    
+			
+			
+			
 			model.addAttribute(codeClass);
+			
+			
 			
 			
 	}
