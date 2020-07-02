@@ -8,4 +8,6 @@ public interface CodeMapper {
 
 	public List<CodeLabelValue> getCodeClassList(String classCode) throws Exception;
 
+	public List<CodeLabelValue> getCodeList(String classCode);
+
 }

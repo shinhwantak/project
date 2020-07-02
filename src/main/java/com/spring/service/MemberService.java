@@ -10,5 +10,7 @@ public interface MemberService {
 
 	public List<Member> list() throws Exception;
 
+	public Member read(int userNo)throws Exception;
+
 	
 }

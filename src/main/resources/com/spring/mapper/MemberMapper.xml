@@ -6,7 +6,7 @@
 	<resultMap type="Member" id="memberMap">
 		<id property="userNo" column="user_no" />
 		<result property="userNo" column="user_no" />
-		<result property="userId" column="user_id" />
+		<result property="userid" column="user_id" />
 		<result property="userPw" column="user_pw" />
 		<result property="userName" column="user_name" />
 		<result property="userName" column="user_name" />
@@ -48,11 +48,19 @@
 		user_id,
 		user_pw,
 		user_name,
-		(select code_name from code_detail where class_code = 'A01' and code_value = job) as job,
+		(select code_name from code_detail where class_code = 'A01'
+		and code_value = job) as job,
 		coin,
 		reg_date
 		from member
-		order by reg_date desc
+		order by reg_date
+		desc
+	</select>
+
+	<select id="read" resultMap="memberMap">
+		SELECT mem.user_no, mem.user_id, user_pw, user_name, job, coin, reg_date,
+		upd_date, auth FROM member mem LEFT OUTER JOIN member_auth auth ON
+		mem.user_no = auth.user_no WHERE mem.user_no = #{userNo}
 	</select>
 
 

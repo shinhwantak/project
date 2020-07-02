@@ -11,6 +11,15 @@
 		order by class_name
 		
 	</select>
+	
+	<select id="getCodeList" resultType="com.spring.domain.CodeLabelValue">
+		SELECT code_value AS value,
+			   code_name AS label
+		  FROM code_detail
+		 WHERE class_code = #{classCode}
+		   AND use_yn = 'Y'
+	  ORDER BY sort_seq
+	</select>
 
 
 </mapper> 

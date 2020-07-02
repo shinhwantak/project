@@ -75,10 +75,32 @@ public class MemberController  {
 		
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model)throws Exception{
+		
 		model.addAttribute("list",service.list());
+		System.out.println(service.list());
 	}
+	
+	@RequestMapping(value="/read", method = RequestMethod.GET)
+	public void read(int userNo, Model model)throws Exception{
+		String classCode = "A01";
+		List<CodeLabelValue> jobList = codeService.getCodeList(classCode);
+		
+		model.addAttribute("jobList",jobList);
+		model.addAttribute(service.read(userNo));
+		
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyForm(int userNo, Model model)throws Exception{
+		String classCode = "A01";
+		List<CodeLabelValue> jobList = codeService.getCodeList(classCode);
+		
+		model.addAttribute("jobList",jobList);
+		model.addAttribute(service.read(userNo));
+	}
+	
 	
 	
 }

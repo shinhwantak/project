@@ -19,4 +19,9 @@ public class CodeServiceImpl implements CodeService{
 		return mapper.getCodeClassList(classCode);
 	}
 	
+	@Override
+	public List<CodeLabelValue> getCodeList(String classCode) throws Exception {
+		return mapper.getCodeList(classCode);
+	}
+	
 }

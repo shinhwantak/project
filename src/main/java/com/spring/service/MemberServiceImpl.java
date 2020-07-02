@@ -37,5 +37,11 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> list() throws Exception {
 		return mapper.list();
 	}
+
+
+	@Override
+	public Member read(int userNo) throws Exception {
+		return mapper.read(userNo);
+	}
 	
 }
